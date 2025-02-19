@@ -1,0 +1,871 @@
+body {
+    font-family: 'Rokkitt';
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.book {
+    width: 210mm;
+    height: 297mm;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    flex: 1; /* Allow the book to take up available space */
+}
+
+/* Cứ gọi class = "text-box" rồi thêm class title vào CSS */
+.text-box {
+    position: none;
+    text-align: none;
+}
+
+
+/*All elements in Page 1*/
+.title1 {
+    font-size: 42px;
+    font-weight: normal;
+    position: static;
+    padding: 80px;
+    text-align: center;
+    color: red;
+}
+.title2 {
+    position: static;
+    font-size: 25px;
+    font-weight: 100;
+    padding: 120px;
+    text-align: center;
+    color: red;
+}
+.page1 {
+    width: 210mm;
+    height: 297mm;
+    background-image: url(https://i.postimg.cc/qBwYB5SK/page1-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    padding: 0px;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+}
+.front-image1 {
+    position: absolute;
+    padding-top: 595px;
+    max-width: 210mm;
+    max-height: 297mm;
+    border-radius: 10px;
+    margin: 0 auto;
+    transition: transform .8s;
+}
+.front-image1 img {
+    width: 100%;
+    height: auto;
+    margin-top: -10px;
+    border-radius: 10px;
+}
+.front-image1:hover{
+    transform: scale(1.6);
+}
+.front-image1:hover .hover-text {
+    display: block;
+    transition-delay: 2s;
+}
+
+
+
+/*All elements of Page2 */
+.page2 {
+    width: 210mm;
+    height: 297mm;
+    padding: 0px;
+    background-image: url(https://i.postimg.cc/Hx4NyZLf/page2-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+}
+.front-image2 {
+    background: none;
+    position: absolute;
+    width: 210mm;
+    max-height: 297mm;
+    right: 0%;
+    border-radius: 10px;
+    z-index: 1;
+}
+.title3 {
+    font-size: 38px;
+    color: #8b5e3c;
+    font-weight: small;
+    padding-left: 70px;
+    padding-top: 220px;
+    text-align: left;
+
+}
+.title4 {
+    font-size: 31px;
+    color: #8b5e3c;
+    font-weight: bold;
+    padding-top: 0px;
+    padding-left: 11px;
+    text-align: left;
+}
+.title5 {
+    font-size: 18px;
+    color: #804000;
+    font-weight: normal;
+    padding-top: 358px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    text-align: center;
+}
+
+
+
+/*All elements of Page3 */
+.page3 {
+    width: 210mm;
+    height: 297mm;
+    padding: 0px;
+    background-image: url(https://i.postimg.cc/6p21053V/page3-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    user-select: none;
+    pointer-events: none; 
+}
+
+
+
+
+/*All elements of Page4 */
+.page4 {
+    width: 210mm;
+    height: 297mm;
+    padding: 0px;
+    background-image: url(https://i.postimg.cc/8z2XnQJ2/page4-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+}
+.front-image4 {
+    position: absolute;
+    top: 3%; 
+    left: 5%;
+    max-width: 175mm;
+    max-height: 175mm;
+    border-radius: 10px;
+    transition: transform .8s;
+    z-index: 1;
+}
+.front-image4 img {
+    width: 100%;
+    height: auto;
+    margin-top: -10px;
+    border-radius: 10px;
+}
+.front-image4:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+.front-image5 {
+    background: none;
+    position: absolute;
+    bottom: -9.71%; 
+    left: 50%;
+    max-width: 210mm;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    z-index: 1;
+}
+.front-image6 {
+    background: none;
+    position: absolute;
+    top: 9.9%;
+    left: 50%;
+    max-width: 210mm;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    z-index: 1;
+}
+.title6 {
+    font-size: 50px;
+    color: #44312b;
+    font-weight: normal;
+    padding-left: 140px;
+    /*position: relative;*/
+    text-align: center;
+}
+.title7 {
+    font-size: 18px;
+    color: #035025;
+    font-weight: normal;
+    padding-bottom: 0px;
+    padding-left: 15px;
+    text-align: center;
+}
+.title8 {
+    font-size: 22px;
+    color: #035025;
+    font-weight: normal;
+    padding-top: 0px;
+    padding-right: 35px;
+    padding-left: 35px;
+    padding-bottom: 0px;
+    /*position: relative;*/
+    text-align: justify;
+}
+.title9 {
+    font-size: 18px;
+    color: #035025;
+    font-weight: normal;
+    padding-top: 0px;
+    position: relative;
+    text-align: center;
+}
+.title10 {
+    font-size: 18px;
+    color: #44312b;
+    font-weight: normal;
+    padding: 0px;
+    padding-right: 10px;
+    position: relative;
+    text-align: right;
+}
+
+
+
+/*All elements of page5 */
+.page5 {
+    width: 210mm;
+    height: 297mm;
+    padding: 0px;
+    background-image: url(https://i.postimg.cc/tJ4BV9wx/page5-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    user-select: none;
+    pointer-events: none; 
+}
+.front-image7 {
+    background: none;
+    position: absolute;
+    padding-left: 1150px;
+    padding-top: 510px;
+    max-width: 75mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+.front-image8 {
+    background: none;
+    position: absolute;
+    padding-top: 1080px;
+    padding-left: 510px;
+    max-width: 74mm;
+    max-height: 42mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+.front-image9 {
+    background: none;
+    position: absolute;
+    padding-left: 1150px;
+    padding-top: 1900px;
+    max-width: 75mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.title11 {
+    font-size: 36px;
+    color: #412c26;
+    font-weight: normal;
+    padding-top: 40px;
+    padding-right: 240px;
+    padding-bottom: 0px;
+    position: relative;
+    text-align: right;
+}
+.title12 {
+    font-size: 14px;
+    color: #44312b;
+    font-weight: lighter;
+    margin-top: -42px;
+    padding-right: 70px;
+    position: relative;
+    text-align: right;
+}
+.title13 {
+    font-family: 'Rokkitt';
+    font-size: 26px;
+    word-spacing: 8px;
+    color: #1b1411;
+    font-weight: normal;
+    margin-top: -24px;
+    margin-left: -280px;
+    position: relative;
+    text-align: center;
+}
+.title14 {
+    font-family: 'Rokkitt';
+    font-size: 26px;
+    word-spacing: 8px;
+    color: #1b1411;
+    font-weight: normal;
+    margin-top: -70px;
+    margin-right: -330px;
+    position: relative;
+    text-align: center;
+}
+.title15 {
+    font-family: 'Rokkitt';
+    font-size: 26px;
+    word-spacing: 8px;
+    color: #1b1411;
+    font-weight: normal;
+    margin-top: -180px;
+    margin-left: -275px;
+    position: relative;
+    text-align: center;
+}
+
+
+
+/*All elements of page6 */
+.page6 {
+    width: 210mm;
+    height: 297mm;
+    padding: 0px;
+    background-image: url(https://i.postimg.cc/DymCvyqV/page6-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    user-select: none;
+    pointer-events: none; 
+}
+.front-image10 {
+    background: none;
+    position: absolute;
+    padding-left: 1120px;
+    padding-top: 750px;
+    max-width: 75mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+
+.title16 {
+    font-family: 'Rokkitt';
+    font-size: 26px;
+    word-spacing: 8px;
+    font-family: 'Rokkitt';
+    color: #000000;
+    font-weight: normal;
+    padding-top: 180px;
+    padding-right: 320px;
+    position: relative;
+    text-align: center;
+}
+.title17 {
+    font-size: 26px;
+    font-family: 'Rokkitt';
+    color: #000000;
+    word-spacing: 8px;
+    font-weight: normal;
+    margin-top: -195px;
+    padding-left: 332px;
+    position: relative;
+    text-align: center;
+}
+
+
+
+
+/*All elements of page7 */
+.page7 {
+    width: 210mm;
+    height: 297mm;
+    padding: 0px;
+    background-image: url(https://i.postimg.cc/tgdkS1H6/page7-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    user-select: none;
+    pointer-events: none; 
+}
+.front-image11 {
+    background: none;
+    position: absolute;
+    padding-left: 230px;
+    padding-top: 750px;
+    max-width: 60mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+.front-image12 {
+    background: none;
+    position: absolute;
+    padding-left: 1350px;
+    padding-top: 750px;
+    max-width: 60mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+.front-image13 {
+    background: none;
+    position: absolute;
+    padding-left: 230px;
+    padding-top: 1750px;
+    max-width: 60mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.title18 {
+    font-size: 32px;
+    font-family: 'Sedgwick Ave';
+    rotate: -1.2deg;
+    color: #000000;
+    word-spacing: 10px;
+    font-weight: normal;
+    margin-top: 155px;
+    padding-left: 16px;
+    position: relative;
+    text-align: center;
+}
+.title19 {
+    font-size: 22px;
+    font-family: 'Dancing Script';
+    rotate: -1.2deg;
+    color: #000000;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: -20px;
+    margin-left: -10px;
+    position: relative;
+    text-align: center;
+}
+.title20 {
+    font-size: 25px;
+    font-family: 'Dancing Script';
+    rotate: -1.2deg;
+    color: #000000;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: 58px;
+    margin-left: 130px;
+    position: relative;
+    text-align: center;
+}
+
+
+
+/*All elements of page8 */
+.page8 {
+    width: 210mm;
+    height: 297mm;
+    padding: 0px;
+    background-image: url(https://i.postimg.cc/fWqKrn18/page8-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    user-select: none;
+    pointer-events: none; 
+}
+.front-image14 {
+    background: none;
+    position: absolute;
+    padding-left: 1100px;
+    padding-top: 920px;
+    max-width: 66mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+.front-image15 {
+    background: none;
+    position: absolute;
+    padding-left: 500px;
+    padding-top: 1860px;
+    max-width: 66mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+.front-image16 {
+    background: none;
+    position: absolute;
+    margin-left: 0px;
+    margin-top: 76px;
+    max-width: 196mm;
+    z-index: 1;
+}
+.front-image17 {
+    background: none;
+    rotate: 0.6deg;
+    position: absolute;
+    margin-left: -6px;
+    margin-top: 3px;
+    max-width: 196mm;
+    border-radius: 18px;
+    z-index: 1;
+}
+
+.title21 {
+    font-size: 78px;
+    font-family: 'Dancing Script';
+    color: #000000;
+    word-spacing: 5px;
+    font-weight: lighter;
+    margin-top: 140px;
+    margin-left: 45px;
+    position: relative;
+    text-align: center;
+}
+.title22 {
+    font-size: 20px;
+    font-family: 'Dancing Script';
+    color: #000000;
+    word-spacing: 1px;
+    font-weight: normal;
+    margin-top: -60px;
+    margin-left: 300px;
+    position: relative;
+    text-align: left;
+}
+.title23 {
+    font-size: 23px;
+    font-family: 'Dancing Script';
+    color: #000000;
+    word-spacing: 1px;
+    font-weight: normal;
+    margin-top: 23px;
+    margin-left: 130px;
+    position: relative;
+    text-align: left;
+}
+.title24 {
+    font-size: 23px;
+    font-family: 'Dancing Script';
+    color: #000000;
+    word-spacing: 1px;
+    font-weight: normal;
+    margin-top: -240px;
+    margin-left: 430px;
+    position: relative;
+    text-align: left;
+}
+.title25 {
+    font-size: 24px;
+    font-family: 'Dancing Script';
+    color: #000000;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: 32px;
+    margin-left: 230px;
+    position: relative;
+    text-align: center;
+}
+
+
+
+/*All elements of page9 */
+.page9 {
+    width: 210mm;
+    height: 297mm;
+    padding: 0px;
+    background-image: url(https://i.postimg.cc/7YpNq1H7/page9-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    user-select: none;
+    pointer-events: none; 
+}
+.front-image18 {
+    background: none;
+    position: absolute;
+    margin-top: 590px;
+    margin-left: 400px;
+    width: 216mm;
+    height: 296mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.title26 {
+    font-size: 28px;
+    font-family: 'Maven Pro';
+    color: #5f3815;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: 60px;
+    margin-left: 45px;
+    position: relative;
+    text-align: left;
+}
+.title27 {
+    font-size: 68px;
+    font-family: 'Kings', serif;
+    font-style: normal;
+    color: #5f3815;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: 350px;
+    margin-left: -230px;
+    position: relative;
+    text-align: center;
+}
+.title28 {
+    font-size: 44px;
+    font-family: 'DejaVu Serif';
+    color: #5f3815;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: -70px;
+    margin-left: -270px;
+    position: relative;
+    text-align: center;
+}
+.title29 {
+    font-size: 25px;
+    font-family: 'Rokkitt';
+    color: #512e0f;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: 330px;
+    margin-left: 45px;
+    position: relative;
+    text-align: left;
+}
+
+
+
+
+/*All elements of page10 */
+.page10 {
+    width: 210mm;
+    height: 297mm;
+    padding: 0px;
+    background-image: url(https://i.postimg.cc/3xmFNyNq/page10-tapsan.png);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    user-select: none;
+    pointer-events: none; 
+}
+.front-image19 {
+    background: none;
+    position: absolute;
+    margin-top: 470px;
+    margin-left: 400px;
+    width: 190mm;
+    height: 310mm;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.title30 {
+    font-size: 105px;
+    font-family: 'Dancing Script';
+    color: #512e0f;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: -40px;
+    margin-left: 130px;
+    position: relative;
+    text-align: left;
+}
+.title31 {
+    font-size: 25px;
+    font-family: 'Bungee';
+    color: #512e0f;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: -80px;
+    margin-left: 180px;
+    position: relative;
+    text-align: left;
+}
+.title32 {
+    font-size: 25px;
+    font-family: 'Rokkitt';
+    color: #512e0f;
+    word-spacing: 5px;
+    font-weight: normal;
+    margin-top: -5px;
+    margin-left: -245px;
+    position: relative;
+    text-align: center;
+}
+.title33 {
+    font-size: 25px;
+    font-family: 'Rokkitt';
+    color: #512e0f;
+    word-spacing: 5px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-left: 245px;
+    position: relative;
+    text-align: left;
+}
+.title34 {
+    font-size: 25px;
+    font-family: 'Dancing Script';
+    color: #512e0f;
+    word-spacing: 1px;
+    font-weight: normal;
+    margin-top: 120px;
+    margin-left: 280px;
+    position: relative;
+    text-align: left;
+}
+.ykien {
+    background-color: #ddc6b3; 
+    width: 100%;
+    padding: 20px 0; 
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+}
+.ykien-text {
+    font-size: 18px;
+    font-family: 'Rokkitt';
+    color: #000000;
+    margin: 5px 0;
+    padding-left: 50px;
+    text-align: center;
+}
+input[type="text"], input[type="email"] {
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+textarea {
+    width: 80%;
+    padding: 20px;
+    margin-left: 48px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+}
+button[type="submit"] {
+    display: block;
+    width: 150px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #bd804b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+/*Last page and tag of "Chữ cái" */
+.page:last-child {
+    border-bottom: none;
+}
+h1 {
+    font-family: 'Dancing Script', serif;
+}
+h2 {
+    font-family: 'Rokkitt', serif;
+}
+h3 {
+    font-family: 'Francois One', serif;
+}
+p {
+    line-height: 1.1;
+}
+p1 {
+    line-height: 1.32;
+}
+
+
+
+
+.hover-text {
+    display: none;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: display 8s;
+    font-size: 30px;
+    color: #eb2929;
+    text-shadow:
+      0 0 7px #ee2424,
+      0 0 10px #b8b8b8,
+      0 0 21px #5b5b5b,
+      0 0 42px rgb(114, 114, 114),
+      0 0 82px rgb(154, 154, 154),
+      0 0 92px rgb(162, 162, 162),
+      0 0 102px rgb(211, 211, 211),
+      0 0 151px rgb(207, 207, 207);
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+
+

@@ -1,0 +1,250 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.iframe-container {
+    width: 225mm;
+    height: 297mm;
+    border: 0px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.albums-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.album-label {
+    text-align: center;
+    font-size: 30px;
+    font-family: Darumadrop One ;
+    font-weight: bold;
+    margin-top: 10px;
+    font-style: italic;
+    color: #d46d13;
+}
+
+.album {
+    width: 300px;
+    height: 300px;
+    margin-top: 10px; /* Adjusted position */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.album2, .album3 {
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.album img, .album2 img, .album3 img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.album img.active, .album2 img.active, .album3 img.active {
+    opacity: 1;
+}
+
+.album .nav-button, .album2 .nav-button, .album3 .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.album .nav-button:hover, .album2 .nav-button:hover, .album3 .nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.album .prev, .album2 .prev, .album3 .prev {
+    left: 10px;
+}
+
+.album .next, .album2 .next, .album3 .next {
+    right: 10px;
+}
+
+
+/*Animation of website */
+.ykien, .footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+header {
+    background-color: #ca9e77; 
+    color: #623308; 
+    text-align: center;
+    align-items: center;
+    padding: 20px 0; 
+    position: relative;
+    width: 310mm;
+    height: 10mm;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
+}
+
+.header-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px; /* Changed from margin-right to margin-left */
+}
+
+.header-text {
+    font-family: 'Dancing Script', sans-serif; 
+    font-size: 30px;
+    margin: 5px 0;
+    user-select: none;
+    pointer-events: none;
+    align-items: center;
+    margin-left: 20px; /* Added margin-left to create space between logo and text */
+}
+.header-text {
+    font-family: 'Dancing Script', sans-serif; 
+    font-size: 40px;
+    margin: 5px 0;
+    user-select: none;
+    pointer-events: none;
+    align-items: center;
+    margin-left: 20px; /* Added margin-left to create space between logo and text */
+}
+.header-text2 {
+    font-family: 'Delicious Handrawn', sans-serif; 
+    font-size: 50px;
+    font-weight: lighter;
+    margin: 12px 0;
+    user-select: none;
+    pointer-events: none;
+    align-items: right;
+    margin-left: 110px; /* Added margin-left to create space between logo and text */
+}
+.footer {
+    background-color: #ca9e77; 
+    color: #000000; 
+    padding: 20px 0; 
+    border-radius: 10px;
+    user-select: none;
+    pointer-events: none; 
+    margin-top: 1px;
+    width: 310mm;
+}
+
+.footer-text {
+    font-family: 'Rokkitt', sans-serif; 
+    font-size: 18px;
+    margin: 5px 0;
+    
+}
+
+/*Album ảnh*/
+.album2, .album3 {
+    margin-top: 20px;
+}
+
+.ykien {
+    background-color: #ddc6b3; 
+    width: 310mm;
+    padding: 20px 0; 
+    background-position: center;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    border-radius: 10px;
+    position: relative;
+}
+.ykien-text {
+    font-size: 18px;
+    font-family: 'Rokkitt';
+    color: #000000;
+    margin: 5px 0;
+    padding-left: 50px;
+    text-align: center;
+}
+input[type="text"], input[type="email"] {
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+textarea {
+    align-items: center;
+    width: 80%;
+    padding: 20px;
+    margin-left: 48px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+}
+button[type="submit"] {
+    display: block;
+    width: 150px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #bd804b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ykien label[for="message"] {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+textarea {
+    display: block;
+    margin: 0 auto;
+}
+
+.circular-icon {
+    border-radius: 50%;
+}
