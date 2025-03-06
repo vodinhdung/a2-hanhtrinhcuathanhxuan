@@ -19,7 +19,7 @@ function showPrevImage1() {
 }
 
 function startSlideshow1() {
-    intervalId1 = setInterval(showNextImage1, 3000);
+    intervalId1 = setInterval(showNextImage1, 10000);
 }
 
 function stopSlideshow1() {
@@ -61,7 +61,7 @@ function showPrevImage2() {
 }
 
 function startSlideshow2() {
-    intervalId2 = setInterval(showNextImage2, 4500);
+    intervalId2 = setInterval(showNextImage2, 12000);
 }
 
 function stopSlideshow2() {
@@ -103,7 +103,7 @@ function showPrevImage3() {
 }
 
 function startSlideshow3() {
-    intervalId3 = setInterval(showNextImage3, 5500);
+    intervalId3 = setInterval(showNextImage3, 15500);
 }
 
 function stopSlideshow3() {
