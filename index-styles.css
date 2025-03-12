@@ -190,7 +190,7 @@ header {
 .ykien {
     background-color: #ddc6b3; 
     width: 310mm;
-    padding: 20px 0; 
+    padding: 10px 0; 
     background-position: center;
     border-bottom: 1px solid #000000;
     border-top: 1px solid #000000;
@@ -201,7 +201,7 @@ header {
     font-size: 18px;
     font-family: 'Rokkitt';
     color: #000000;
-    margin: 5px 0;
+    margin: 1px 0;
     padding-left: 50px;
     text-align: center;
 }
@@ -213,7 +213,7 @@ input[type="text"], input[type="email"] {
 textarea {
     align-items: center;
     width: 80%;
-    padding: 20px;
+    padding: 5px;
     margin-left: 48px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -223,8 +223,8 @@ textarea {
 button[type="submit"] {
     display: block;
     width: 150px;
-    margin: 10px auto;
-    padding: 10px;
+    margin: 5px auto;
+    padding: 5px;
     font-size: 18px;
     color: #fff;
     background-color: #bd804b;
