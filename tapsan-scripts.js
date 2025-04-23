@@ -123,3 +123,4 @@ prevButton3.addEventListener('click', () => {
 });
 
 startSlideshow3();
+getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);
