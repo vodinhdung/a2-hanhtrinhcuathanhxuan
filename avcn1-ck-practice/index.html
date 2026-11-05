@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>AVCN1 – CK Practice</title>
+<title>Thi – Medical English Practice</title>
 <style>
 :root{
   --background:#fff;--foreground:#0a0a0a;--card:#fff;--card-fg:#0a0a0a;
@@ -35,7 +35,7 @@ button,select,input{font:inherit}.app{max-width:1180px;margin:auto;padding:24px}
 </head>
 <body>
 <div class="topbar"><div class="topbar-inner">
-  <div class="brand"><div class="brand-badge">A1</div><span>AVCN1 – CK Practice</span></div>
+  <div class="brand"><div class="brand-badge">ME</div><span>Medical English Practice</span></div>
   <div class="top-actions">
     <button class="btn ghost" id="themeBtn" title="Đổi giao diện">☾</button>
     <button class="btn" id="keyBtn">Đáp án</button>
@@ -44,12 +44,12 @@ button,select,input{font:inherit}.app{max-width:1180px;margin:auto;padding:24px}
 </div></div>
 <main class="app">
 <section class="hero">
-  <h1>Ôn tập AVCN1 – CK</h1>
-  <p>43 câu được dựng lại từ ảnh đề. Chế độ Luyện tập báo đúng/sai ngay; chế độ Thi thử chỉ chấm khi bạn bấm Nộp bài. Kết quả được lưu ngay trên trình duyệt.</p>
-  <div class="note"><b>Lưu ý nguồn:</b> Câu 33 có một dòng bị ghép định nghĩa ngay trong đề gốc; câu 42 bị mất ảnh nền kéo-thả. Hai câu này được giữ phần chữ nhìn thấy và chuyển sang dạng ôn tập tương đương, có đánh dấu “phục dựng”.</div>
+  <h1>Ôn tập đề Thi – Medical English</h1>
+  <p>40 câu được trích từ file Thi.docx. Chế độ Luyện tập báo đúng/sai ngay; chế độ Thi thử chỉ chấm khi bạn bấm Nộp bài. Kết quả được lưu ngay trên trình duyệt.</p>
+  <div class="note"><b>Nguồn đề:</b> Thi.docx • 40 câu. Nội dung câu hỏi và lựa chọn được giữ theo file Word; các lỗi/ngữ pháp bất thường của đề gốc không bị tự ý sửa trong phần câu hỏi.</div>
 </section>
 <section class="dashboard">
-  <div class="stat"><div class="label">Đã trả lời</div><div class="value" id="answeredStat">0/43</div></div>
+  <div class="stat"><div class="label">Đã trả lời</div><div class="value" id="answeredStat">0/40</div></div>
   <div class="stat"><div class="label">Đúng</div><div class="value" id="correctStat">0</div></div>
   <div class="stat"><div class="label">Sai</div><div class="value" id="wrongStat">0</div></div>
   <div class="stat"><div class="label">Tiến độ</div><div class="value" id="percentStat">0%</div><div class="progress-shell"><div class="progress-bar" id="progressBar"></div></div></div>
@@ -70,83 +70,54 @@ button,select,input{font:inherit}.app{max-width:1180px;margin:auto;padding:24px}
 </main>
 <script>
 const regular = [
-{n:1,q:`<span class="dialogue">Doctor: Do you have any trouble getting started?</span><span class="dialogue">Patient: ..............................</span>`,o:[`I've gone to the toilet more often than I used to`,`The stream is normal`,`Perhaps a little dribbling from time to time`,`No, never`],a:3,e:`Câu hỏi Yes/No “Do you have any trouble…?” cần câu trả lời trực tiếp. “No, never” phù hợp nhất.`},
-{n:2,q:`Which of the following can be used to complete the sentence describing the result of the report? Creatinine is slightly ....................., fifty-eight umol/L.`,o:[`elevated`,`low`,`unremarkable`,`high`],a:1,e:`Creatinine 58 µmol/L thấp hơn khoảng tham chiếu 60–120 µmol/L trong bảng của bài, nên “slightly low”.`},
-{n:3,q:`The abbreviation of CSF stands for ................`,o:[`cerebrospinal fluid`,`central system fluid`,`catheter specimen fluid`,`cerebrospinal system fluid`],a:0,e:`CSF = cerebrospinal fluid (dịch não tuỷ).`},
-{n:4,q:`Which word has the opposite meaning to “insidious” in the sentence: “An insidious disease comes on slowly and doesn’t have obvious symptoms at first.”`,o:[`mild`,`common`,`rare`,`sudden`],a:3,e:`Insidious = âm thầm, khởi phát từ từ; trái nghĩa phù hợp là sudden.`},
-{n:5,q:`Which of the following is the full description of the result: MCV 72.5?`,o:[`Mean corpuscular volume is down, seventy-two point five femtolitres.`,`Mean complete volume is down, seventy-two point five femtolitres.`,`Mean count volume is down, seventy-two point five femtolitres.`,`Mean corpuscular volume is down, seventy-two five femtolitres.`],a:0,e:`MCV = Mean corpuscular volume; 72.5 đọc là “seventy-two point five”; đơn vị fL = femtolitres.`},
-{n:6,q:`Which term is used to describe higher lab result than normal?`,o:[`unremarkable`,`elevated`,`low`,`down`],a:1,e:`Elevated = tăng/cao hơn mức bình thường.`},
-{n:7,q:`When you have a trouble with your urinary system, you can lose control of your ........................`,o:[`bladder`,`lung`,`bowel`,`stomach`],a:0,e:`Urinary incontinence là mất kiểm soát bàng quang (bladder).`},
-{n:8,q:`Which medical term is referred by the following description of patient’s symptom “I have to pee every half hour or so”?`,o:[`frequency`,`haematuria`,`dysuria`,`nocturia`],a:0,e:`Đi tiểu rất thường xuyên = frequency.`},
-{n:9,q:`Complete the statement with a suitable word. Disorders in which there is no obvious pathology or anatomical change in an organ are termed ....................`,o:[`organic`,`physical`,`functional`,`mental`],a:2,e:`Functional disorders: có rối loạn chức năng nhưng không thấy tổn thương giải phẫu/bệnh lý rõ.`},
-{n:10,q:`Complete the statement with a suitable word. ........................ are the things that are noticed by the patient.`,o:[`Signs`,`Presentation`,`Complaining`,`Symptoms`],a:3,e:`Symptoms là những gì bệnh nhân cảm nhận/nhận thấy; signs là dấu hiệu khách quan.`},
-{n:11,q:`A full blood count measures ................ in a sample of blood.`,o:[`the volume of the antibodies`,`the number of viruses`,`the number of red blood cells, white blood cells, and platelets`,`the number of bacteria`],a:2,e:`FBC đo các thành phần tế bào máu, trong đó có số lượng hồng cầu, bạch cầu và tiểu cầu.`},
-{n:12,q:`To do blood investigation you should use a ................ to take some blood from a vein in the patient’s arm.`,o:[`syringe`,`pipette`,`test tube`,`microscope`],a:0,e:`Trong các lựa chọn, syringe là dụng cụ dùng để lấy máu từ tĩnh mạch.`},
-{n:13,q:`Where is the stress of the word “<b><i>symmetrical</i></b>”?`,o:[`the fourth`,`the third`,`the first`,`the second`],a:3,e:`sym-MET-ri-cal: trọng âm rơi vào âm tiết thứ hai.`},
-{n:14,q:`Urine is ................ in the bladder until it is passed.`,o:[`went out`,`voided`,`peed`,`stored`],a:3,e:`Cụm chuẩn: “Urine is formed in the kidneys and stored in the bladder until it is passed.”`},
-{n:15,q:`Treatment is aimed ................ restoring fluid balance with adequate intravenous fluids.`,o:[`at`,`to`,`with`,`by`],a:0,e:`Cấu trúc: be aimed at + V-ing.`},
-{n:16,q:`Anaemia may occur with the patient who has ................`,o:[`diarrhoea`,`excessive destruction of red cells`,`insomnia`,`headache`],a:1,e:`Phá huỷ hồng cầu quá mức (haemolysis) có thể gây thiếu máu.`},
-{n:17,q:`The abbreviation of MSU stands for ................ urine.`,o:[`medium stream`,`mid standard`,`mid stream`,`medium standard`],a:2,e:`MSU = midstream urine / midstream specimen of urine.`},
-{n:18,q:`Which patient’s description is referred to the medical term “hesitancy”?`,o:[`I passed some blood in my urine.`,`I have to rush to go to the toilet.`,`I have trouble getting started.`,`I have to get up several times to pass water at night.`],a:2,e:`Hesitancy = difficulty starting to pass urine.`},
-{n:19,q:`Complete the statement with a suitable word. ........................ neoplasms – cancers – are likely to spread and cause serious illness or death.`,o:[`invasion`,`metastasis`,`Benign`,`Malignant`],a:3,e:`Malignant neoplasms là u ác tính/cancers có khả năng xâm lấn, lan rộng.`},
-{n:20,q:`Choose the word having the underlined part pronounced differently from the rest.`,o:[`cough<u>ed</u>`,`notic<u>ed</u>`,`prevent<u>ed</u>`,`mix<u>ed</u>`],a:2,e:`-ed trong prevented phát âm /ɪd/ (sau /t/); các từ còn lại ở đây phát âm /t/.`},
-{n:21,q:`Among common urinary symptoms, “difficulty starting to pass urine” means ................`,o:[`haematuria`,`stream`,`dysuria`,`hesitancy`],a:3,e:`Difficulty starting to pass urine = hesitancy.`},
-{n:22,q:`<span class="dialogue">Professor: What’s the most likely .............. in this case?</span><span class="dialogue">Student: Most probably carcinoma of the bowel with chronic blood loss.</span>`,o:[`diagnosing`,`diagnosis`,`diagnoses`,`diagnose`],a:1,e:`Sau “the most likely” cần danh từ số ít: diagnosis.`},
-{n:23,q:`................ is the analysis of urine.`,o:[`Urination`,`Urinary system`,`Urinalysis system`,`Urinalysis`],a:3,e:`Urinalysis = phân tích/xét nghiệm nước tiểu.`},
-{n:25,q:`I have some pain when I pass water or ........................`,o:[`voided`,`pee`,`start`,`burn`],a:1,e:`“pass water” và “pee” đều là cách nói đi tiểu; câu hoàn chỉnh: “when I pass water or pee”.`},
-{n:26,q:`There are ................ syllables in “<b><i>neurological</i></b>”.`,o:[`five`,`two`,`four`,`three`],a:0,e:`neu-ro-log-i-cal = 5 âm tiết.`},
-{n:27,q:`In case notes, plus signs (++...) are used to indicates ................ findings.`,o:[`abnormal`,`normal`,`common`,`good`],a:0,e:`Dấu + trong case notes được dùng để chỉ abnormal findings.`},
-{n:28,q:`Anaemia is a symptom which may happen due to ................ of erythropoiesis, for example the diet is lacking or deficient in iron.`,o:[`paraesthesiae`,`insomnia`,`headache`,`low production`],a:3,e:`Thiếu sắt làm giảm tạo hồng cầu → low production of erythropoiesis.`},
-{n:29,q:`Choose the word having the underlined part pronounced differently from the rest.`,o:[`h<u>ur</u>t`,`ulc<u>er</u>`,`doct<u>or</u>`,`<u>a</u>cute`],a:0,e:`Phần gạch chân trong hurt có âm /ɜː/; các phần còn lại có âm yếu gần /ə/.`},
-{n:30,q:`I’m a lab technician, I ............. samples and tissues under a microscope.`,o:[`will examine`,`am examining`,`to examine`,`examine`],a:3,e:`Nói nghề nghiệp/thói quen → hiện tại đơn: I examine.`},
-{n:31,q:`Haemoglobin is within normal limits, one hundred and forty-three ................`,o:[`mmol/L`,`L/L`,`fL`,`g/L`],a:3,e:`Haemoglobin trong bảng được tính bằng g/L.`},
-{n:32,q:`Which symptom is not mentioned in the statement “I feel completely worn out”?`,o:[`malaise`,`lassitude`,`lethargy`,`fatigue`],a:0,e:`“Worn out” thuộc nhóm tiredness/lassitude/lethargy/fatigue; malaise là cảm giác không khoẻ nói chung.`},
-{n:34,q:`The white cell count is normal so we can exclude acute ................`,o:[`leukaemia`,`pernicious anaemia`,`aplastic anaemia`,`carcinoma`],a:0,e:`Trong ngữ cảnh bài học về bệnh máu, WCC bình thường giúp loại trừ acute leukaemia.`},
-{n:35,q:`Which of the following is the full description of the result: Na 138?`,o:[`Alkaline is normal, one hundred and thirty-eight millimols per litre.`,`Alanine is normal, one hundred and thirty-eight millimols per litre.`,`Potassium is normal, one hundred and thirty-eight millimols per litre.`,`Sodium is normal, one hundred and thirty-eight millimols per litre.`],a:3,e:`Na = sodium; 138 mmol/L nằm trong giới hạn bình thường của bảng.`},
-{n:36,q:`What isn’t measured in a sample of the FBC?`,o:[`The number of different cells.`,`The volume of the cells.`,`The number of viruses.`,`The erythrocyte sedimentation rate.`],a:2,e:`Theo đúng giáo trình dùng cho bộ câu này, FBC gồm số lượng tế bào, thể tích tế bào và ESR; không đo số lượng virus.`},
-{n:37,q:`................ is a condition in which there is a trophy of the gastric mucosa.`,o:[`Iron deficiency`,`Pernicious anaemia`,`Aplastic anaemia`,`Chronic bleeding ulcer`],a:1,e:`Đề gốc ghi “a trophy” (khả năng là lỗi của “atrophy”). Pernicious anaemia liên quan teo niêm mạc dạ dày.`},
-{n:38,q:`Choose the word having the underlined part pronounced differently from the rest.`,o:[`ris<u>es</u>`,`studi<u>es</u>`,`reduc<u>es</u>`,`catch<u>es</u>`],a:1,e:`rises/reduces/catches có đuôi phát âm /ɪz/; studies có đuôi /z/.`},
-{n:39,q:`Which patient’s description is referred to the medical term “dysuria”?`,o:[`I have to pee every half hour or so.`,`I have to rush to go to the toilet.`,`I get a scalding pain when I pass water.`,`I have to get up several times to pass water at night.`],a:2,e:`Dysuria = burning/scalding pain when passing urine.`},
-{n:40,q:`Casts are ................ formed by protein or cells.`,o:[`solid blood cells`,`solid cells`,`solid bodies`,`solid platelets`],a:2,e:`Cụm nguyên văn của giáo trình: “Casts are solid bodies formed by protein or cells.”`},
-{n:41,q:`Which medical term is referred by the following description of patient’s symptom “I have to get up several times to pass water at night”?`,o:[`nocturia`,`incontinence`,`frequency`,`dysuria`],a:0,e:`Nocturia = đi tiểu ban đêm.`},
-{n:43,q:`Which symptom is mentioned in the statement “I’ve been feeling off-colour for two days”?`,o:[`malaise`,`lethargy`,`fatigue`,`tiredness`],a:0,e:`“Feeling off-colour” là cách bệnh nhân diễn đạt malaise (cảm giác không khoẻ nói chung).`}
+{n:1,q:"A microscope is an instrument used for _______ things carefully.",o:["examine","fix","use","weigh"],a:0,e:"Trong các lựa chọn, “examine” là đáp án được nhắm tới. Câu tự nhiên hơn trong tiếng Anh chuẩn sẽ là “used for examining things carefully”."},
+{n:2,q:"A _______ is a person who responds to emergencies and gives first aid.",o:["pharmacist","paramedic","physiotherapist","porter"],a:1,e:"A paramedic responds to emergencies and provides first aid/emergency care."},
+{n:3,q:"A _______ is a specialist who treats sick children.",o:["pharmacist","porter","paramedic","paediatrician"],a:3,e:"A paediatrician is a doctor specializing in children."},
+{n:4,q:"You should put your bag _______ patients' beds to keep them hygienic.",o:["past","along","up","under"],a:3,e:"“Under patients’ beds” is the only option that fits the location meaning intended by the item."},
+{n:5,q:"I am checking a drug chart _______ so I can't help you.",o:["right now","five months ago","always","at 11 last night"],a:0,e:"Present continuous “am checking” matches “right now”."},
+{n:6,q:"_______ is a condition that keeps the body from properly absorbing and exhaling gases.",o:["Lung cancer","Bronchitis","Emphysema","Asthma"],a:2,e:"Emphysema damages the alveoli and impairs normal gas exchange and exhalation."},
+{n:7,q:"Choose the right question: X: _______? Y: Linda's doing a placement at the moment.",o:["How's Linda doing?","What time does Linda working?","What's Linda doing at the moment?","Where's Linda doing?"],a:2,e:"The reply describes Linda’s current activity, so the matching question is “What’s Linda doing at the moment?”"},
+{n:8,q:"In the old days, people _______ their skin hard with coins whenever they had cold.",o:["rubbing","rubed","rub","rubbed"],a:3,e:"Past-time context “In the old days” calls for the past form “rubbed”."},
+{n:9,q:"She is a receptionist in a hospital, so she _______ patients every day.",o:["is meeting","meet","meets","met"],a:2,e:"A habitual action with “every day” uses the present simple: “meets”."},
+{n:10,q:"Which of these is NOT a function of the skeletal system?",o:["removing wastes from the body","supporting and giving shape","making blood cells","protecting the brain"],a:0,e:"Removing wastes is mainly a urinary/excretory function, not a skeletal-system function."},
+{n:11,q:"A big, pink muscular bag where your food gets moved with digestive chemicals is the _______.",o:["gall bladder","small intestine","stomach","liver"],a:2,e:"The stomach is the muscular organ that mixes food with digestive chemicals."},
+{n:12,q:"These two sacs are where carbon dioxide leaves the blood and oxygen enters it.",o:["nasal passages","stomach","lungs","trachea"],a:2,e:"Gas exchange takes place in the lungs."},
+{n:13,q:"In a history case, the abbreviation TB stands for _______.",o:["tubercle","tuberculosis","tuber","tubuân"],a:1,e:"TB stands for tuberculosis."},
+{n:14,q:"The _______ is the hollow muscular organ that sends blood around the body.",o:["Lung","Heart","Windpipe","Airway"],a:1,e:"The heart pumps blood around the body."},
+{n:15,q:"The large, dark-red gland that produces bile and cleans the blood is the _______.",o:["Spleen","Pancreas","Kidney","Liver"],a:3,e:"The liver produces bile and performs major detoxification/metabolic functions."},
+{n:16,q:"Which of the following is the anatomical term for \"KNEECAP\"?",o:["costa","tibia","femur","patella"],a:3,e:"The kneecap is the patella."},
+{n:17,q:"Which of the following is the anatomical term for \"WINDPIPE\"?",o:["airway","oesophagus","trachea","bronchiole"],a:2,e:"The windpipe is the trachea."},
+{n:18,q:"What is the plural form of the term \"ALVEOLUS\"?",o:["alveolion","alveoluses","alveolae","alveoli"],a:3,e:"The plural of alveolus is alveoli."},
+{n:19,q:"What is the plural form of the term \"ATRIUM\"?",o:["atria","atrias","atriums","atriales"],a:0,e:"The standard medical plural is atria."},
+{n:20,q:"Which underlined part is pronounced /ð/?",o:["<u>th</u>erapy","brea<u>th</u>e","heal<u>th</u>","anaes<u>th</u>etist"],a:1,e:"In “breathe”, th is pronounced /ð/; in the other three words it is /θ/."},
+{n:21,q:"Which symptom refers to problems with your nose?",o:["long nose","runny nose","straight nose","big nose"],a:1,e:"“Runny nose” is a symptom; the others are physical descriptions."},
+{n:22,q:"Which word has a different sound from the others in the underlined part?",o:["cir<u>c</u>ulation","<u>b</u>arium","<u>c</u>apillary","ventri<u>c</u>le"],a:1,e:"The marked consonant in barium is /b/; the marked c in the other items is pronounced /k/."},
+{n:23,q:"Which word means study and practice to learn how to do a job?",o:["basic training","upgrade training","general training","skillful training"],a:0,e:"“Basic training” is the intended option for initial study and practice for a job."},
+{n:24,q:"Which of the following words means working without salary?",o:["volunteering","professional","unpopular","well-paid"],a:0,e:"Volunteering means working without being paid."},
+{n:25,q:"What diseases did Mr. Peter Wilson have when he was young?",o:["Cramp pains","Tight pains","Chest pain","Whooping cough and wheezy bronchitis"],a:3,e:"The case history states that he had whooping cough and wheezy bronchitis as a child."},
+{n:26,q:"How many times has Mr. Wilson felt a tight pain in his chest?",o:["three","four","two","one"],a:0,e:"The case history says “on three occasions”."},
+{n:27,q:"When did the tight pains in Mr. Wilson's chest happen?",o:["when working in the garden","when he walks up hill","whenever he walks any distance","when he climbs stairs"],a:0,e:"The case history states that these chest pains happened when he was working in the garden."},
+{n:28,q:"The underlined part of \"gastr<u>o</u>scopy\" is pronounced as _______.",o:["/ɒ/","/ae/","/ə/","/uː/"],a:0,e:"In British pronunciation, the marked “o” in gastroscopy is /ɒ/."},
+{n:29,q:"What is the plural form of \"Diagnosis\"?",o:["diagnosises","diagnoses","diagnosa","diagnosic"],a:1,e:"The plural of diagnosis is diagnoses."},
+{n:30,q:"What is the plural form of \"Bacterium\"?",o:["bacterias","bacteria","bacteriums","bacteries"],a:1,e:"The plural of bacterium is bacteria."},
+{n:31,q:"A specialist who focuses on the skin is a _______.",o:["cardiologist","dermatologist","neurologist","radiologist"],a:1,e:"A dermatologist specializes in skin conditions."},
+{n:32,q:"The bone in the upper leg (thigh bone) is the _______.",o:["tibia","fibula","femur","humerus"],a:2,e:"The femur is the thigh bone."},
+{n:33,q:"A _______ works in a pharmacy and prepares medicines.",o:["surgeon","pharmacist","nurse","dentist"],a:1,e:"A pharmacist works in a pharmacy and prepares/dispenses medicines."},
+{n:34,q:"The medical term for \"difficulty in breathing\" is _______.",o:["tachycardia","dyspnea","hypertension","anemia"],a:1,e:"Dyspnea means difficult or laboured breathing."},
+{n:35,q:"Which organ filters blood to produce urine?",o:["Liver","Stomach","Kidney","Lung"],a:2,e:"The kidneys filter blood and produce urine."},
+{n:36,q:"A _______ helps patients recover their physical strength through exercise.",o:["porter","physiotherapist","paediatrician","radiologist"],a:1,e:"A physiotherapist uses exercise and physical rehabilitation to restore function and strength."},
+{n:37,q:"The medical term for a \"fast heart rate\" is _______.",o:["bradycardia","tachycardia","hypotension","arrhythmia"],a:1,e:"Tachycardia means an abnormally fast heart rate."},
+{n:38,q:"A person who assists the surgeon in the operating room is a _______.",o:["scrub nurse","receptionist","porter","paramedic"],a:0,e:"A scrub nurse assists the surgical team in the operating room."},
+{n:39,q:"The plural form of \"Appendix\" is _______.",o:["appendixes","appendices","appendi","appendixs"],a:1,e:"The standard medical plural is appendices."},
+{n:40,q:"Which instrument is used to listen to the heart or lungs?",o:["Microscope","Stethoscope","Thermometer","Sphygmomanometer"],a:1,e:"A stethoscope is used to listen to heart and lung sounds."}
 ];
 
-const special24 = {
- n:24,type:'blanks',title:'History of leech therapy',
- passage:`Leeches are a type of <b>[1]</b>, and their use in medicine dates back 2,500 years. In Europe, the surgical removal of a patient’s <b>[2]</b> using leeches was practiced widely until the 19th century. They were thought to <b>[3]</b> many things, including headaches, obesity, eye disorders, and mental illness. For most of the 20th century the use of leeches went out of <b>[4]</b>, but since development in <b>[5]</b> in the 1980s, they have been making a comeback.`,
- rows:[
-  {label:'[1] Leeches are a type of …',options:['earthworm','bird','castle','animal'],answer:'earthworm'},
-  {label:'[2] surgical removal of a patient’s …',options:['blood','bleed','bleeding','bloods'],answer:'blood'},
-  {label:'[3] They were thought to … many things',options:['cure','correct','clean','diagnose'],answer:'cure'},
-  {label:'[4] went out of …',options:['fashion','movement','method','therapy'],answer:'fashion'},
-  {label:'[5] development in …',options:['microsurgery','medicine','treatment','laboratory tests'],answer:'microsurgery'}
- ],
- e:'Đáp án tạo thành đoạn văn chuẩn: earthworm → blood → cure → fashion → microsurgery.'
-};
-const special33 = {
- n:33,type:'blanks',title:'Medical laboratory technicians',reconstructed:true,
- passage:`Medical laboratory technicians play an important role in the prevention and diagnosis of diseases, such as cancer, diabetes and AIDS. Medical lab technicians work under the supervision of a physician, lab manager or medical technologist and perform laboratory tests on specimens.<br><br>The tests that lab technicians conduct assist doctors in verifying the causes of an illness, making medical decisions and determining treatment options. Some of the areas in which medical lab technicians may specialize include: Microbiology, Hematology, Blood banking, Immunology, Clinical chemistry, Molecular biology.<br><br>Medical lab technicians set up and sanitize laboratories, prepare specimens, match blood compatibility for transfusions, analyze fluid chemical content, collect blood samples and examine immune system elements. Technicians are expected to handle sophisticated laboratory equipment, including cell counters, microscopes and automated analyzers. These devices are used to search for parasites, bacteria and other microorganisms. Medical laboratory technicians carry out less complicated procedures and tests than do medical laboratory technologists.`,
- rows:[
-  {label:'Where are tests done on medical specimens in order to get information about the health of a patient?',options:['medical laboratory','operating theatre','pharmacy','reception'],answer:'medical laboratory'},
-  {label:'Who is responsible for matching the compatible blood between the donor and the recipient?',options:['medical laboratory technicians','patients','receptionists','radiographers'],answer:'medical laboratory technicians'},
-  {label:'Which department belongs to medical lab?',options:['Microbiology','Cardiology','Physiotherapy','Dermatology'],answer:'Microbiology'},
-  {label:'................. is the identification of the nature and cause of a certain phenomenon.',options:['Diagnosis','Treatment','Prognosis','Prevention'],answer:'Diagnosis'},
-  {label:'................. refers to the process of collecting, separating, and storing blood to make (something) free from dirt, infection, disease, etc., by cleaning it.',options:['Blood banking','Sanitize','Microbiology','Transfusion'],answer:'Blood banking'}
- ],
- e:'Ba câu đầu dựa trực tiếp vào đoạn đọc. “Diagnosis” là định nghĩa chuẩn. Dòng cuối của ảnh gốc bị ghép hai định nghĩa: phần “collecting, separating, and storing blood” chỉ Blood banking; phần “make … free from dirt … by cleaning it” lại mô tả sanitize.'
-};
-const vocab42 = [
- ['crutch','cái nạng'],['defibrillator','máy khử rung tim / máy sốc điện'],['bedpan','bô/chậu vệ sinh tại giường'],['dressing','băng/gạc che vết thương'],['incubator','lồng ấp'],['needle','kim'],['plaster','băng dán vết thương'],['plaster cast','bó bột'],['stitch','mũi khâu'],['sling','băng/đai treo tay'],['wheelchair','xe lăn'],['stretcher','cáng']
-];
-const special42={n:42,type:'vocab',title:'Kiến thức từ vựng',reconstructed:true,items:vocab42,e:'Ảnh nền kéo-thả trong đề không hiển thị, nên không thể phục hồi chính xác vị trí marker. Phần luyện này dùng đúng 12 từ nhìn thấy trong ảnh và kiểm tra nghĩa tương ứng.'};
-
-let all=[...regular,special24,special33,special42].sort((a,b)=>a.n-b.n);
+let all=[...regular].sort((a,b)=>a.n-b.n);
 let order=all.map(x=>x.n);
 let mode='practice',filter='all',submitted=false;
-const state=JSON.parse(localStorage.getItem('avcn1_ck_state')||'{}');
+const state=JSON.parse(localStorage.getItem('thi_medical_english_state_v1')||'{}');
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-function save(){localStorage.setItem('avcn1_ck_state',JSON.stringify(state));}
+function save(){localStorage.setItem('thi_medical_english_state_v1',JSON.stringify(state));}
 function getQ(n){return all.find(x=>x.n===n)}
 function isAnswered(q){
  const s=state[q.n]; if(!s)return false;
@@ -192,7 +163,7 @@ function render(){
    const ans=isAnswered(q),ok=isCorrect(q); if(filter==='unanswered'&&ans)return false; if(filter==='wrong'&&ok!==false)return false;
    const txt=(q.q||q.title||'')+' '+(q.passage||''); return !query||txt.replace(/<[^>]+>/g,' ').toLowerCase().includes(query);
  });
- $('#questions').innerHTML=qs.map(q=>q.type==='blanks'?renderBlanks(q):q.type==='vocab'?renderVocab(q):renderRegular(q)).join('') || `<div class="note">Không có câu nào phù hợp bộ lọc hiện tại.</div>`;
+ $('#questions').innerHTML=qs.map(q=>renderRegular(q)).join('') || `<div class="note">Không có câu nào phù hợp bộ lọc hiện tại.</div>`;
  bindInputs(); renderNav(); updateStats();
 }
 function bindInputs(){
@@ -207,10 +178,10 @@ function renderNav(){
 }
 function updateStats(){
  const answered=all.filter(isAnswered).length;const judged=all.map(q=>shouldReveal(q)?isCorrect(q):null);const correct=judged.filter(x=>x===true).length,wrong=judged.filter(x=>x===false).length;const pct=Math.round(answered/all.length*100);
- $('#answeredStat').textContent=`${answered}/43`;$('#correctStat').textContent=correct;$('#wrongStat').textContent=wrong;$('#percentStat').textContent=pct+'%';$('#progressBar').style.width=pct+'%';
+ $('#answeredStat').textContent=`${answered}/40`;$('#correctStat').textContent=correct;$('#wrongStat').textContent=wrong;$('#percentStat').textContent=pct+'%';$('#progressBar').style.width=pct+'%';
 }
 function buildKey(){
- $('#keyGrid').innerHTML=all.map(q=>{let a;if(q.type==='blanks')a=q.rows.map(r=>r.answer).join(' → ');else if(q.type==='vocab')a='12 từ vựng';else a=String.fromCharCode(65+q.a);return `<div class="key-cell"><b>Câu ${q.n}</b>${a}</div>`}).join('')
+ $('#keyGrid').innerHTML=all.map(q=>{let a=String.fromCharCode(65+q.a);return `<div class="key-cell"><b>Câu ${q.n}</b>${a}</div>`}).join('')
 }
 $('#modeSwitch').addEventListener('click',e=>{if(!e.target.dataset.mode)return;mode=e.target.dataset.mode;submitted=false;$$('#modeSwitch button').forEach(x=>x.classList.toggle('active',x===e.target));$('#submitBtn').classList.toggle('hidden',mode!=='exam');render()});
 $('#filterSwitch').addEventListener('click',e=>{if(!e.target.dataset.filter)return;filter=e.target.dataset.filter;$$('#filterSwitch button').forEach(x=>x.classList.toggle('active',x===e.target));render()});
