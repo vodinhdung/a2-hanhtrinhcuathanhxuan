@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AVCN1 – CK Practice</title>
+<style>
+:root{
+  --background:#fff;--foreground:#0a0a0a;--card:#fff;--card-fg:#0a0a0a;
+  --muted:#f5f5f5;--muted-fg:#737373;--border:#e5e5e5;--input:#e5e5e5;
+  --primary:#171717;--primary-fg:#fafafa;--secondary:#f5f5f5;--secondary-fg:#171717;
+  --accent:#f5f5f5;--accent-fg:#171717;--destructive:#dc2626;--success:#16a34a;
+  --ring:#a3a3a3;--radius:14px;--shadow:0 1px 2px rgba(0,0,0,.04),0 8px 30px rgba(0,0,0,.04)
+}
+[data-theme="dark"]{
+  --background:#0a0a0a;--foreground:#fafafa;--card:#0f0f10;--card-fg:#fafafa;
+  --muted:#171717;--muted-fg:#a3a3a3;--border:#262626;--input:#262626;
+  --primary:#fafafa;--primary-fg:#171717;--secondary:#171717;--secondary-fg:#fafafa;
+  --accent:#1f1f22;--accent-fg:#fafafa;--ring:#525252;--shadow:0 1px 2px rgba(0,0,0,.2),0 8px 30px rgba(0,0,0,.25)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--background);color:var(--foreground);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+button,select,input{font:inherit}.app{max-width:1180px;margin:auto;padding:24px}.topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--background) 88%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1180px;margin:auto;padding:14px 24px;display:flex;gap:12px;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-weight:700}.brand-badge{width:34px;height:34px;border-radius:10px;background:var(--primary);color:var(--primary-fg);display:grid;place-items:center;font-weight:800}.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--border);background:var(--card);color:var(--foreground);border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:600;transition:.15s}.btn:hover{background:var(--accent)}.btn.primary{background:var(--primary);color:var(--primary-fg);border-color:var(--primary)}.btn.ghost{border-color:transparent;background:transparent}.btn.danger{color:var(--destructive)}
+.hero{padding:30px 0 20px}.hero h1{font-size:clamp(28px,5vw,48px);line-height:1.08;margin:0 0 10px;letter-spacing:-.035em}.hero p{color:var(--muted-fg);max-width:760px;margin:0}.note{margin-top:16px;border:1px solid var(--border);background:var(--muted);border-radius:12px;padding:12px 14px;color:var(--muted-fg);font-size:14px}
+.dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.stat{border:1px solid var(--border);background:var(--card);border-radius:var(--radius);padding:15px;box-shadow:var(--shadow)}.stat .label{font-size:12px;color:var(--muted-fg);text-transform:uppercase;letter-spacing:.06em}.stat .value{font-size:24px;font-weight:800;margin-top:3px}.progress-shell{height:8px;background:var(--muted);border-radius:999px;overflow:hidden}.progress-bar{height:100%;background:var(--primary);width:0;transition:.25s}
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0 22px}.segmented{display:flex;border:1px solid var(--border);border-radius:11px;padding:3px;background:var(--muted)}.segmented button{border:0;background:transparent;color:var(--muted-fg);padding:7px 11px;border-radius:8px;cursor:pointer;font-weight:600}.segmented button.active{background:var(--card);color:var(--foreground);box-shadow:0 1px 2px rgba(0,0,0,.08)}.search{flex:1;min-width:220px;border:1px solid var(--border);background:var(--card);color:var(--foreground);border-radius:10px;padding:10px 12px;outline:0}.search:focus{box-shadow:0 0 0 3px color-mix(in srgb,var(--ring) 25%,transparent);border-color:var(--ring)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:22px}.sidebar{position:sticky;top:82px;height:max-content;border:1px solid var(--border);border-radius:var(--radius);background:var(--card);padding:14px;box-shadow:var(--shadow)}.sidebar-title{font-weight:700;margin-bottom:10px}.qnav{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}.qnav button{aspect-ratio:1;border:1px solid var(--border);background:var(--card);color:var(--muted-fg);border-radius:8px;cursor:pointer;font-size:12px;font-weight:700}.qnav button.answered{border-color:var(--ring);color:var(--foreground);background:var(--muted)}.qnav button.correct{background:color-mix(in srgb,var(--success) 13%,var(--card));border-color:color-mix(in srgb,var(--success) 35%,var(--border));color:var(--success)}.qnav button.wrong{background:color-mix(in srgb,var(--destructive) 10%,var(--card));border-color:color-mix(in srgb,var(--destructive) 35%,var(--border));color:var(--destructive)}
+.questions{display:flex;flex-direction:column;gap:16px}.card{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);overflow:hidden}.card-head{padding:18px 20px 0;display:flex;justify-content:space-between;gap:12px}.qnum{font-size:12px;font-weight:800;color:var(--muted-fg);letter-spacing:.08em;text-transform:uppercase}.tag{font-size:12px;border:1px solid var(--border);background:var(--muted);color:var(--muted-fg);border-radius:999px;padding:3px 8px}.card-body{padding:14px 20px 20px}.question-text{font-size:17px;font-weight:650;line-height:1.55;margin-bottom:14px}.question-text .dialogue{display:block;margin-bottom:3px}.options{display:grid;gap:9px}.option{position:relative;border:1px solid var(--border);border-radius:11px;padding:11px 13px;display:flex;align-items:flex-start;gap:10px;cursor:pointer;transition:.15s;background:var(--card)}.option:hover{background:var(--accent)}.option input{margin-top:4px;accent-color:var(--primary)}.option.selected{border-color:var(--ring)}.option.correct{border-color:color-mix(in srgb,var(--success) 52%,var(--border));background:color-mix(in srgb,var(--success) 8%,var(--card))}.option.wrong{border-color:color-mix(in srgb,var(--destructive) 48%,var(--border));background:color-mix(in srgb,var(--destructive) 7%,var(--card))}.letter{font-weight:800;min-width:20px}.feedback{display:none;margin-top:13px;border-radius:11px;padding:11px 13px;font-size:14px}.feedback.show{display:block}.feedback.good{background:color-mix(in srgb,var(--success) 10%,var(--card));border:1px solid color-mix(in srgb,var(--success) 35%,var(--border))}.feedback.bad{background:color-mix(in srgb,var(--destructive) 8%,var(--card));border:1px solid color-mix(in srgb,var(--destructive) 35%,var(--border))}.feedback strong{display:block;margin-bottom:3px}.explanation{color:var(--muted-fg)}
+.special-grid{display:grid;gap:10px}.blank-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,280px);gap:10px;align-items:center;border:1px solid var(--border);border-radius:11px;padding:10px}.blank-row select{width:100%;border:1px solid var(--input);background:var(--background);color:var(--foreground);border-radius:9px;padding:9px;outline:0}.passage{background:var(--muted);border:1px solid var(--border);padding:14px;border-radius:11px;margin:0 0 14px;white-space:normal}.source-warning{font-size:13px;color:var(--muted-fg);border-left:3px solid #f59e0b;padding-left:10px;margin:10px 0 14px}.special-actions{display:flex;gap:8px;margin-top:12px}.vocab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.vocab-item{border:1px solid var(--border);border-radius:11px;padding:10px}.vocab-term{font-weight:750}.vocab-item select{margin-top:7px;width:100%;border:1px solid var(--input);background:var(--background);color:var(--foreground);border-radius:9px;padding:8px}
+.answer-key{display:none;margin-top:20px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card);padding:18px;box-shadow:var(--shadow)}.answer-key.show{display:block}.key-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.key-cell{border:1px solid var(--border);border-radius:9px;padding:8px;text-align:center;font-size:13px}.key-cell b{display:block}.hidden{display:none!important}.footer{padding:34px 0 60px;color:var(--muted-fg);font-size:13px;text-align:center}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:relative;top:auto;order:-1}.qnav{grid-template-columns:repeat(10,1fr)}.dashboard{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.app{padding:16px}.topbar-inner{padding:10px 16px}.brand span:last-child{display:none}.dashboard{grid-template-columns:1fr 1fr}.qnav{grid-template-columns:repeat(8,1fr)}.card-head,.card-body{padding-left:15px;padding-right:15px}.blank-row{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}.key-grid{grid-template-columns:repeat(4,1fr)}.top-actions .labelhide{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <div class="brand"><div class="brand-badge">A1</div><span>AVCN1 – CK Practice</span></div>
+  <div class="top-actions">
+    <button class="btn ghost" id="themeBtn" title="Đổi giao diện">☾</button>
+    <button class="btn" id="keyBtn">Đáp án</button>
+    <button class="btn danger" id="resetBtn">Làm lại</button>
+  </div>
+</div></div>
+<main class="app">
+<section class="hero">
+  <h1>Ôn tập AVCN1 – CK</h1>
+  <p>43 câu được dựng lại từ ảnh đề. Chế độ Luyện tập báo đúng/sai ngay; chế độ Thi thử chỉ chấm khi bạn bấm Nộp bài. Kết quả được lưu ngay trên trình duyệt.</p>
+  <div class="note"><b>Lưu ý nguồn:</b> Câu 33 có một dòng bị ghép định nghĩa ngay trong đề gốc; câu 42 bị mất ảnh nền kéo-thả. Hai câu này được giữ phần chữ nhìn thấy và chuyển sang dạng ôn tập tương đương, có đánh dấu “phục dựng”.</div>
+</section>
+<section class="dashboard">
+  <div class="stat"><div class="label">Đã trả lời</div><div class="value" id="answeredStat">0/43</div></div>
+  <div class="stat"><div class="label">Đúng</div><div class="value" id="correctStat">0</div></div>
+  <div class="stat"><div class="label">Sai</div><div class="value" id="wrongStat">0</div></div>
+  <div class="stat"><div class="label">Tiến độ</div><div class="value" id="percentStat">0%</div><div class="progress-shell"><div class="progress-bar" id="progressBar"></div></div></div>
+</section>
+<section class="toolbar">
+  <div class="segmented" id="modeSwitch"><button data-mode="practice" class="active">Luyện tập</button><button data-mode="exam">Thi thử</button></div>
+  <div class="segmented" id="filterSwitch"><button data-filter="all" class="active">Tất cả</button><button data-filter="unanswered">Chưa làm</button><button data-filter="wrong">Câu sai</button></div>
+  <input class="search" id="searchBox" placeholder="Tìm nội dung câu hỏi…" />
+  <button class="btn" id="shuffleBtn">Trộn câu</button>
+  <button class="btn primary hidden" id="submitBtn">Nộp bài</button>
+</section>
+<div class="layout">
+  <section class="questions" id="questions"></section>
+  <aside class="sidebar"><div class="sidebar-title">Đi nhanh đến câu</div><div class="qnav" id="qnav"></div></aside>
+</div>
+<section class="answer-key" id="answerKey"><h3 style="margin-top:0">Đáp án nhanh</h3><div class="key-grid" id="keyGrid"></div></section>
+<div class="footer">Standalone HTML • Không dùng thư viện ngoài • Dữ liệu lưu bằng localStorage trên máy của bạn.</div>
+</main>
+<script>
+const regular = [
+{n:1,q:`<span class="dialogue">Doctor: Do you have any trouble getting started?</span><span class="dialogue">Patient: ..............................</span>`,o:[`I've gone to the toilet more often than I used to`,`The stream is normal`,`Perhaps a little dribbling from time to time`,`No, never`],a:3,e:`Câu hỏi Yes/No “Do you have any trouble…?” cần câu trả lời trực tiếp. “No, never” phù hợp nhất.`},
+{n:2,q:`Which of the following can be used to complete the sentence describing the result of the report? Creatinine is slightly ....................., fifty-eight umol/L.`,o:[`elevated`,`low`,`unremarkable`,`high`],a:1,e:`Creatinine 58 µmol/L thấp hơn khoảng tham chiếu 60–120 µmol/L trong bảng của bài, nên “slightly low”.`},
+{n:3,q:`The abbreviation of CSF stands for ................`,o:[`cerebrospinal fluid`,`central system fluid`,`catheter specimen fluid`,`cerebrospinal system fluid`],a:0,e:`CSF = cerebrospinal fluid (dịch não tuỷ).`},
+{n:4,q:`Which word has the opposite meaning to “insidious” in the sentence: “An insidious disease comes on slowly and doesn’t have obvious symptoms at first.”`,o:[`mild`,`common`,`rare`,`sudden`],a:3,e:`Insidious = âm thầm, khởi phát từ từ; trái nghĩa phù hợp là sudden.`},
+{n:5,q:`Which of the following is the full description of the result: MCV 72.5?`,o:[`Mean corpuscular volume is down, seventy-two point five femtolitres.`,`Mean complete volume is down, seventy-two point five femtolitres.`,`Mean count volume is down, seventy-two point five femtolitres.`,`Mean corpuscular volume is down, seventy-two five femtolitres.`],a:0,e:`MCV = Mean corpuscular volume; 72.5 đọc là “seventy-two point five”; đơn vị fL = femtolitres.`},
+{n:6,q:`Which term is used to describe higher lab result than normal?`,o:[`unremarkable`,`elevated`,`low`,`down`],a:1,e:`Elevated = tăng/cao hơn mức bình thường.`},
+{n:7,q:`When you have a trouble with your urinary system, you can lose control of your ........................`,o:[`bladder`,`lung`,`bowel`,`stomach`],a:0,e:`Urinary incontinence là mất kiểm soát bàng quang (bladder).`},
+{n:8,q:`Which medical term is referred by the following description of patient’s symptom “I have to pee every half hour or so”?`,o:[`frequency`,`haematuria`,`dysuria`,`nocturia`],a:0,e:`Đi tiểu rất thường xuyên = frequency.`},
+{n:9,q:`Complete the statement with a suitable word. Disorders in which there is no obvious pathology or anatomical change in an organ are termed ....................`,o:[`organic`,`physical`,`functional`,`mental`],a:2,e:`Functional disorders: có rối loạn chức năng nhưng không thấy tổn thương giải phẫu/bệnh lý rõ.`},
+{n:10,q:`Complete the statement with a suitable word. ........................ are the things that are noticed by the patient.`,o:[`Signs`,`Presentation`,`Complaining`,`Symptoms`],a:3,e:`Symptoms là những gì bệnh nhân cảm nhận/nhận thấy; signs là dấu hiệu khách quan.`},
+{n:11,q:`A full blood count measures ................ in a sample of blood.`,o:[`the volume of the antibodies`,`the number of viruses`,`the number of red blood cells, white blood cells, and platelets`,`the number of bacteria`],a:2,e:`FBC đo các thành phần tế bào máu, trong đó có số lượng hồng cầu, bạch cầu và tiểu cầu.`},
+{n:12,q:`To do blood investigation you should use a ................ to take some blood from a vein in the patient’s arm.`,o:[`syringe`,`pipette`,`test tube`,`microscope`],a:0,e:`Trong các lựa chọn, syringe là dụng cụ dùng để lấy máu từ tĩnh mạch.`},
+{n:13,q:`Where is the stress of the word “<b><i>symmetrical</i></b>”?`,o:[`the fourth`,`the third`,`the first`,`the second`],a:3,e:`sym-MET-ri-cal: trọng âm rơi vào âm tiết thứ hai.`},
+{n:14,q:`Urine is ................ in the bladder until it is passed.`,o:[`went out`,`voided`,`peed`,`stored`],a:3,e:`Cụm chuẩn: “Urine is formed in the kidneys and stored in the bladder until it is passed.”`},
+{n:15,q:`Treatment is aimed ................ restoring fluid balance with adequate intravenous fluids.`,o:[`at`,`to`,`with`,`by`],a:0,e:`Cấu trúc: be aimed at + V-ing.`},
+{n:16,q:`Anaemia may occur with the patient who has ................`,o:[`diarrhoea`,`excessive destruction of red cells`,`insomnia`,`headache`],a:1,e:`Phá huỷ hồng cầu quá mức (haemolysis) có thể gây thiếu máu.`},
+{n:17,q:`The abbreviation of MSU stands for ................ urine.`,o:[`medium stream`,`mid standard`,`mid stream`,`medium standard`],a:2,e:`MSU = midstream urine / midstream specimen of urine.`},
+{n:18,q:`Which patient’s description is referred to the medical term “hesitancy”?`,o:[`I passed some blood in my urine.`,`I have to rush to go to the toilet.`,`I have trouble getting started.`,`I have to get up several times to pass water at night.`],a:2,e:`Hesitancy = difficulty starting to pass urine.`},
+{n:19,q:`Complete the statement with a suitable word. ........................ neoplasms – cancers – are likely to spread and cause serious illness or death.`,o:[`invasion`,`metastasis`,`Benign`,`Malignant`],a:3,e:`Malignant neoplasms là u ác tính/cancers có khả năng xâm lấn, lan rộng.`},
+{n:20,q:`Choose the word having the underlined part pronounced differently from the rest.`,o:[`cough<u>ed</u>`,`notic<u>ed</u>`,`prevent<u>ed</u>`,`mix<u>ed</u>`],a:2,e:`-ed trong prevented phát âm /ɪd/ (sau /t/); các từ còn lại ở đây phát âm /t/.`},
+{n:21,q:`Among common urinary symptoms, “difficulty starting to pass urine” means ................`,o:[`haematuria`,`stream`,`dysuria`,`hesitancy`],a:3,e:`Difficulty starting to pass urine = hesitancy.`},
+{n:22,q:`<span class="dialogue">Professor: What’s the most likely .............. in this case?</span><span class="dialogue">Student: Most probably carcinoma of the bowel with chronic blood loss.</span>`,o:[`diagnosing`,`diagnosis`,`diagnoses`,`diagnose`],a:1,e:`Sau “the most likely” cần danh từ số ít: diagnosis.`},
+{n:23,q:`................ is the analysis of urine.`,o:[`Urination`,`Urinary system`,`Urinalysis system`,`Urinalysis`],a:3,e:`Urinalysis = phân tích/xét nghiệm nước tiểu.`},
+{n:25,q:`I have some pain when I pass water or ........................`,o:[`voided`,`pee`,`start`,`burn`],a:1,e:`“pass water” và “pee” đều là cách nói đi tiểu; câu hoàn chỉnh: “when I pass water or pee”.`},
+{n:26,q:`There are ................ syllables in “<b><i>neurological</i></b>”.`,o:[`five`,`two`,`four`,`three`],a:0,e:`neu-ro-log-i-cal = 5 âm tiết.`},
+{n:27,q:`In case notes, plus signs (++...) are used to indicates ................ findings.`,o:[`abnormal`,`normal`,`common`,`good`],a:0,e:`Dấu + trong case notes được dùng để chỉ abnormal findings.`},
+{n:28,q:`Anaemia is a symptom which may happen due to ................ of erythropoiesis, for example the diet is lacking or deficient in iron.`,o:[`paraesthesiae`,`insomnia`,`headache`,`low production`],a:3,e:`Thiếu sắt làm giảm tạo hồng cầu → low production of erythropoiesis.`},
+{n:29,q:`Choose the word having the underlined part pronounced differently from the rest.`,o:[`h<u>ur</u>t`,`ulc<u>er</u>`,`doct<u>or</u>`,`<u>a</u>cute`],a:0,e:`Phần gạch chân trong hurt có âm /ɜː/; các phần còn lại có âm yếu gần /ə/.`},
+{n:30,q:`I’m a lab technician, I ............. samples and tissues under a microscope.`,o:[`will examine`,`am examining`,`to examine`,`examine`],a:3,e:`Nói nghề nghiệp/thói quen → hiện tại đơn: I examine.`},
+{n:31,q:`Haemoglobin is within normal limits, one hundred and forty-three ................`,o:[`mmol/L`,`L/L`,`fL`,`g/L`],a:3,e:`Haemoglobin trong bảng được tính bằng g/L.`},
+{n:32,q:`Which symptom is not mentioned in the statement “I feel completely worn out”?`,o:[`malaise`,`lassitude`,`lethargy`,`fatigue`],a:0,e:`“Worn out” thuộc nhóm tiredness/lassitude/lethargy/fatigue; malaise là cảm giác không khoẻ nói chung.`},
+{n:34,q:`The white cell count is normal so we can exclude acute ................`,o:[`leukaemia`,`pernicious anaemia`,`aplastic anaemia`,`carcinoma`],a:0,e:`Trong ngữ cảnh bài học về bệnh máu, WCC bình thường giúp loại trừ acute leukaemia.`},
+{n:35,q:`Which of the following is the full description of the result: Na 138?`,o:[`Alkaline is normal, one hundred and thirty-eight millimols per litre.`,`Alanine is normal, one hundred and thirty-eight millimols per litre.`,`Potassium is normal, one hundred and thirty-eight millimols per litre.`,`Sodium is normal, one hundred and thirty-eight millimols per litre.`],a:3,e:`Na = sodium; 138 mmol/L nằm trong giới hạn bình thường của bảng.`},
+{n:36,q:`What isn’t measured in a sample of the FBC?`,o:[`The number of different cells.`,`The volume of the cells.`,`The number of viruses.`,`The erythrocyte sedimentation rate.`],a:2,e:`Theo đúng giáo trình dùng cho bộ câu này, FBC gồm số lượng tế bào, thể tích tế bào và ESR; không đo số lượng virus.`},
+{n:37,q:`................ is a condition in which there is a trophy of the gastric mucosa.`,o:[`Iron deficiency`,`Pernicious anaemia`,`Aplastic anaemia`,`Chronic bleeding ulcer`],a:1,e:`Đề gốc ghi “a trophy” (khả năng là lỗi của “atrophy”). Pernicious anaemia liên quan teo niêm mạc dạ dày.`},
+{n:38,q:`Choose the word having the underlined part pronounced differently from the rest.`,o:[`ris<u>es</u>`,`studi<u>es</u>`,`reduc<u>es</u>`,`catch<u>es</u>`],a:1,e:`rises/reduces/catches có đuôi phát âm /ɪz/; studies có đuôi /z/.`},
+{n:39,q:`Which patient’s description is referred to the medical term “dysuria”?`,o:[`I have to pee every half hour or so.`,`I have to rush to go to the toilet.`,`I get a scalding pain when I pass water.`,`I have to get up several times to pass water at night.`],a:2,e:`Dysuria = burning/scalding pain when passing urine.`},
+{n:40,q:`Casts are ................ formed by protein or cells.`,o:[`solid blood cells`,`solid cells`,`solid bodies`,`solid platelets`],a:2,e:`Cụm nguyên văn của giáo trình: “Casts are solid bodies formed by protein or cells.”`},
+{n:41,q:`Which medical term is referred by the following description of patient’s symptom “I have to get up several times to pass water at night”?`,o:[`nocturia`,`incontinence`,`frequency`,`dysuria`],a:0,e:`Nocturia = đi tiểu ban đêm.`},
+{n:43,q:`Which symptom is mentioned in the statement “I’ve been feeling off-colour for two days”?`,o:[`malaise`,`lethargy`,`fatigue`,`tiredness`],a:0,e:`“Feeling off-colour” là cách bệnh nhân diễn đạt malaise (cảm giác không khoẻ nói chung).`}
+];
+
+const special24 = {
+ n:24,type:'blanks',title:'History of leech therapy',
+ passage:`Leeches are a type of <b>[1]</b>, and their use in medicine dates back 2,500 years. In Europe, the surgical removal of a patient’s <b>[2]</b> using leeches was practiced widely until the 19th century. They were thought to <b>[3]</b> many things, including headaches, obesity, eye disorders, and mental illness. For most of the 20th century the use of leeches went out of <b>[4]</b>, but since development in <b>[5]</b> in the 1980s, they have been making a comeback.`,
+ rows:[
+  {label:'[1] Leeches are a type of …',options:['earthworm','bird','castle','animal'],answer:'earthworm'},
+  {label:'[2] surgical removal of a patient’s …',options:['blood','bleed','bleeding','bloods'],answer:'blood'},
+  {label:'[3] They were thought to … many things',options:['cure','correct','clean','diagnose'],answer:'cure'},
+  {label:'[4] went out of …',options:['fashion','movement','method','therapy'],answer:'fashion'},
+  {label:'[5] development in …',options:['microsurgery','medicine','treatment','laboratory tests'],answer:'microsurgery'}
+ ],
+ e:'Đáp án tạo thành đoạn văn chuẩn: earthworm → blood → cure → fashion → microsurgery.'
+};
+const special33 = {
+ n:33,type:'blanks',title:'Medical laboratory technicians',reconstructed:true,
+ passage:`Medical laboratory technicians play an important role in the prevention and diagnosis of diseases, such as cancer, diabetes and AIDS. Medical lab technicians work under the supervision of a physician, lab manager or medical technologist and perform laboratory tests on specimens.<br><br>The tests that lab technicians conduct assist doctors in verifying the causes of an illness, making medical decisions and determining treatment options. Some of the areas in which medical lab technicians may specialize include: Microbiology, Hematology, Blood banking, Immunology, Clinical chemistry, Molecular biology.<br><br>Medical lab technicians set up and sanitize laboratories, prepare specimens, match blood compatibility for transfusions, analyze fluid chemical content, collect blood samples and examine immune system elements. Technicians are expected to handle sophisticated laboratory equipment, including cell counters, microscopes and automated analyzers. These devices are used to search for parasites, bacteria and other microorganisms. Medical laboratory technicians carry out less complicated procedures and tests than do medical laboratory technologists.`,
+ rows:[
+  {label:'Where are tests done on medical specimens in order to get information about the health of a patient?',options:['medical laboratory','operating theatre','pharmacy','reception'],answer:'medical laboratory'},
+  {label:'Who is responsible for matching the compatible blood between the donor and the recipient?',options:['medical laboratory technicians','patients','receptionists','radiographers'],answer:'medical laboratory technicians'},
+  {label:'Which department belongs to medical lab?',options:['Microbiology','Cardiology','Physiotherapy','Dermatology'],answer:'Microbiology'},
+  {label:'................. is the identification of the nature and cause of a certain phenomenon.',options:['Diagnosis','Treatment','Prognosis','Prevention'],answer:'Diagnosis'},
+  {label:'................. refers to the process of collecting, separating, and storing blood to make (something) free from dirt, infection, disease, etc., by cleaning it.',options:['Blood banking','Sanitize','Microbiology','Transfusion'],answer:'Blood banking'}
+ ],
+ e:'Ba câu đầu dựa trực tiếp vào đoạn đọc. “Diagnosis” là định nghĩa chuẩn. Dòng cuối của ảnh gốc bị ghép hai định nghĩa: phần “collecting, separating, and storing blood” chỉ Blood banking; phần “make … free from dirt … by cleaning it” lại mô tả sanitize.'
+};
+const vocab42 = [
+ ['crutch','cái nạng'],['defibrillator','máy khử rung tim / máy sốc điện'],['bedpan','bô/chậu vệ sinh tại giường'],['dressing','băng/gạc che vết thương'],['incubator','lồng ấp'],['needle','kim'],['plaster','băng dán vết thương'],['plaster cast','bó bột'],['stitch','mũi khâu'],['sling','băng/đai treo tay'],['wheelchair','xe lăn'],['stretcher','cáng']
+];
+const special42={n:42,type:'vocab',title:'Kiến thức từ vựng',reconstructed:true,items:vocab42,e:'Ảnh nền kéo-thả trong đề không hiển thị, nên không thể phục hồi chính xác vị trí marker. Phần luyện này dùng đúng 12 từ nhìn thấy trong ảnh và kiểm tra nghĩa tương ứng.'};
+
+let all=[...regular,special24,special33,special42].sort((a,b)=>a.n-b.n);
+let order=all.map(x=>x.n);
+let mode='practice',filter='all',submitted=false;
+const state=JSON.parse(localStorage.getItem('avcn1_ck_state')||'{}');
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+function save(){localStorage.setItem('avcn1_ck_state',JSON.stringify(state));}
+function getQ(n){return all.find(x=>x.n===n)}
+function isAnswered(q){
+ const s=state[q.n]; if(!s)return false;
+ if(q.type==='blanks')return Array.isArray(s.values)&&s.values.some(Boolean);
+ if(q.type==='vocab')return Array.isArray(s.values)&&s.values.some(Boolean);
+ return Number.isInteger(s.choice);
+}
+function isFullyAnswered(q){
+ const s=state[q.n]; if(!s)return false;
+ if(q.type==='blanks')return s.values?.length===q.rows.length&&s.values.every(Boolean);
+ if(q.type==='vocab')return s.values?.length===q.items.length&&s.values.every(Boolean);
+ return Number.isInteger(s.choice);
+}
+function isCorrect(q){
+ const s=state[q.n]; if(!s)return null;
+ if(q.type==='blanks')return isFullyAnswered(q)&&q.rows.every((r,i)=>s.values[i]===r.answer);
+ if(q.type==='vocab')return isFullyAnswered(q)&&q.items.every((r,i)=>s.values[i]===r[1]);
+ if(!Number.isInteger(s.choice))return null; return s.choice===q.a;
+}
+function shouldReveal(q){return mode==='practice' ? !!state[q.n]?.checked : submitted}
+function optionHTML(q,idx,text){
+ const s=state[q.n]||{}; const sel=s.choice===idx; const rev=shouldReveal(q); let cls='option'+(sel?' selected':'');
+ if(rev&&idx===q.a)cls+=' correct'; if(rev&&sel&&idx!==q.a)cls+=' wrong';
+ return `<label class="${cls}"><input type="radio" name="q${q.n}" value="${idx}" ${sel?'checked':''}><span class="letter">${String.fromCharCode(97+idx)}.</span><span>${text}</span></label>`
+}
+function renderRegular(q){
+ const s=state[q.n]||{},rev=shouldReveal(q),ok=isCorrect(q);
+ return `<article class="card question-card" id="q${q.n}" data-n="${q.n}"><div class="card-head"><div class="qnum">Câu ${q.n}</div><div class="tag">Trắc nghiệm</div></div><div class="card-body"><div class="question-text">${q.q}</div><div class="options">${q.o.map((x,i)=>optionHTML(q,i,x)).join('')}</div><div class="feedback ${rev?'show '+(ok?'good':'bad'):''}">${rev?`<strong>${ok?'✓ Chính xác':'✕ Chưa đúng — đáp án: '+String.fromCharCode(97+q.a)+'.'}</strong><div class="explanation">${q.e}</div>`:''}</div></div></article>`
+}
+function renderBlanks(q){
+ const s=state[q.n]||{values:[]},rev=shouldReveal(q),ok=isCorrect(q);
+ const rows=q.rows.map((r,i)=>`<div class="blank-row"><div>${r.label}</div><select data-special="${q.n}" data-i="${i}"><option value="">— Chọn đáp án —</option>${r.options.map(x=>`<option ${s.values?.[i]===x?'selected':''}>${x}</option>`).join('')}</select></div>`).join('');
+ return `<article class="card question-card" id="q${q.n}" data-n="${q.n}"><div class="card-head"><div class="qnum">Câu ${q.n}</div><div class="tag">${q.reconstructed?'Phục dựng':'Điền từ'}</div></div><div class="card-body"><div class="question-text">${q.title}</div>${q.reconstructed?'<div class="source-warning">Các lựa chọn trong dropdown của ảnh tĩnh không nhìn thấy; các lựa chọn bên dưới được phục dựng để luyện tập, còn câu hỏi/đoạn đọc giữ theo ảnh.</div>':''}<div class="passage">${q.passage}</div><div class="special-grid">${rows}</div>${mode==='practice'?`<div class="special-actions"><button class="btn primary check-special" data-n="${q.n}">Kiểm tra câu ${q.n}</button></div>`:''}<div class="feedback ${rev?'show '+(ok?'good':'bad'):''}">${rev?`<strong>${ok?'✓ Chính xác':'✕ Chưa hoàn toàn đúng'}</strong><div class="explanation">${q.e}</div>`:''}</div></div></article>`
+}
+function renderVocab(q){
+ const s=state[q.n]||{values:[]};const rev=shouldReveal(q),ok=isCorrect(q);const meanings=q.items.map(x=>x[1]);
+ const items=q.items.map((r,i)=>`<div class="vocab-item"><div class="vocab-term">${r[0]}</div><select data-vocab="42" data-i="${i}"><option value="">— Chọn nghĩa —</option>${meanings.map(m=>`<option ${s.values?.[i]===m?'selected':''}>${m}</option>`).join('')}</select></div>`).join('');
+ return `<article class="card question-card" id="q42" data-n="42"><div class="card-head"><div class="qnum">Câu 42</div><div class="tag">Phục dựng</div></div><div class="card-body"><div class="question-text">Kiến thức từ vựng</div><div class="source-warning">Đề gốc hiển thị “Background image for dragging markers onto”, tức ảnh nền bị lỗi/mất. Danh sách 12 từ dưới đây là phần lựa chọn nhìn thấy chính xác trong ảnh.</div><div class="vocab-grid">${items}</div>${mode==='practice'?'<div class="special-actions"><button class="btn primary check-special" data-n="42">Kiểm tra câu 42</button></div>':''}<div class="feedback ${rev?'show '+(ok?'good':'bad'):''}">${rev?`<strong>${ok?'✓ Chính xác toàn bộ':'✕ Còn mục chưa đúng'}</strong><div class="explanation">${q.e}</div>`:''}</div></div></article>`
+}
+function render(){
+ const query=$('#searchBox')?.value?.toLowerCase()||'';
+ let qs=order.map(getQ).filter(Boolean).filter(q=>{
+   const ans=isAnswered(q),ok=isCorrect(q); if(filter==='unanswered'&&ans)return false; if(filter==='wrong'&&ok!==false)return false;
+   const txt=(q.q||q.title||'')+' '+(q.passage||''); return !query||txt.replace(/<[^>]+>/g,' ').toLowerCase().includes(query);
+ });
+ $('#questions').innerHTML=qs.map(q=>q.type==='blanks'?renderBlanks(q):q.type==='vocab'?renderVocab(q):renderRegular(q)).join('') || `<div class="note">Không có câu nào phù hợp bộ lọc hiện tại.</div>`;
+ bindInputs(); renderNav(); updateStats();
+}
+function bindInputs(){
+ $$('input[type=radio]').forEach(el=>el.addEventListener('change',e=>{const n=+e.target.name.slice(1);state[n]={...(state[n]||{}),choice:+e.target.value};if(mode==='practice')state[n].checked=true;save();render()}));
+ $$('select[data-special]').forEach(el=>el.addEventListener('change',e=>{const n=+e.target.dataset.special,i=+e.target.dataset.i;state[n]=state[n]||{values:[]};state[n].values=state[n].values||[];state[n].values[i]=e.target.value;save();updateStats();renderNav()}));
+ $$('select[data-vocab]').forEach(el=>el.addEventListener('change',e=>{const i=+e.target.dataset.i;state[42]=state[42]||{values:[]};state[42].values=state[42].values||[];state[42].values[i]=e.target.value;save();updateStats();renderNav()}));
+ $$('.check-special').forEach(b=>b.addEventListener('click',e=>{const n=+e.target.dataset.n;state[n]=state[n]||{};state[n].checked=true;save();render();setTimeout(()=>document.getElementById('q'+n)?.scrollIntoView({block:'center'}),0)}));
+}
+function renderNav(){
+ $('#qnav').innerHTML=all.map(q=>{const ans=isAnswered(q),ok=shouldReveal(q)?isCorrect(q):null;let c=ans?'answered':'';if(ok===true)c='correct';if(ok===false)c='wrong';return `<button class="${c}" data-jump="${q.n}">${q.n}</button>`}).join('');
+ $$('[data-jump]').forEach(b=>b.onclick=()=>{filter='all';$('#filterSwitch [data-filter="all"]').click();setTimeout(()=>document.getElementById('q'+b.dataset.jump)?.scrollIntoView({behavior:'smooth',block:'start'}),20)});
+}
+function updateStats(){
+ const answered=all.filter(isAnswered).length;const judged=all.map(q=>shouldReveal(q)?isCorrect(q):null);const correct=judged.filter(x=>x===true).length,wrong=judged.filter(x=>x===false).length;const pct=Math.round(answered/all.length*100);
+ $('#answeredStat').textContent=`${answered}/43`;$('#correctStat').textContent=correct;$('#wrongStat').textContent=wrong;$('#percentStat').textContent=pct+'%';$('#progressBar').style.width=pct+'%';
+}
+function buildKey(){
+ $('#keyGrid').innerHTML=all.map(q=>{let a;if(q.type==='blanks')a=q.rows.map(r=>r.answer).join(' → ');else if(q.type==='vocab')a='12 từ vựng';else a=String.fromCharCode(65+q.a);return `<div class="key-cell"><b>Câu ${q.n}</b>${a}</div>`}).join('')
+}
+$('#modeSwitch').addEventListener('click',e=>{if(!e.target.dataset.mode)return;mode=e.target.dataset.mode;submitted=false;$$('#modeSwitch button').forEach(x=>x.classList.toggle('active',x===e.target));$('#submitBtn').classList.toggle('hidden',mode!=='exam');render()});
+$('#filterSwitch').addEventListener('click',e=>{if(!e.target.dataset.filter)return;filter=e.target.dataset.filter;$$('#filterSwitch button').forEach(x=>x.classList.toggle('active',x===e.target));render()});
+$('#searchBox').addEventListener('input',render);
+$('#submitBtn').onclick=()=>{submitted=true;render();window.scrollTo({top:0,behavior:'smooth'})};
+$('#shuffleBtn').onclick=()=>{order=[...order].sort(()=>Math.random()-.5);render()};
+$('#resetBtn').onclick=()=>{if(confirm('Xoá toàn bộ đáp án đã làm và bắt đầu lại?')){Object.keys(state).forEach(k=>delete state[k]);save();submitted=false;render()}};
+$('#keyBtn').onclick=()=>{$('#answerKey').classList.toggle('show');if($('#answerKey').classList.contains('show'))$('#answerKey').scrollIntoView({behavior:'smooth'})};
+$('#themeBtn').onclick=()=>{const d=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=d?'light':'dark';localStorage.setItem('avcn1_theme',d?'light':'dark');$('#themeBtn').textContent=d?'☾':'☀'};
+const savedTheme=localStorage.getItem('avcn1_theme');if(savedTheme){document.documentElement.dataset.theme=savedTheme;$('#themeBtn').textContent=savedTheme==='dark'?'☀':'☾'}
+buildKey();render();
+</script>
+</body>
+</html>
